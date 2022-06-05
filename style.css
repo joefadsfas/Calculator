@@ -1,24 +1,43 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
 .calculator {
-    text-align: center;
+    background-color: grey;
+    border-radius: 7px;
+    padding: 12px;
 }
 
 .display {
-    display: inline-block;
-    width: 370px;
-    height: 150px;
-    border: 1px solid lightgrey ;
+    height: 120px;
+    border: 1px solid black ;
     border-radius: 7px;
+    font-family: Arial;
+    font-size: 40px;
+    text-align: right;
+    background-color: rgb(125, 140, 115);
+    color: black;
+}
+
+.screen {
+    margin-top: 60px;
+    margin-right: 20px;
 }
 
 .row {
-    padding-top:5px;
+    padding: 5px;
 }
 
 button {
     width: 90px;
     height: 90px;
-    border: none;
+    border: 3px solid black;
     border-radius: 7px;
+    font-size: 30px;
+    margin: 2px;
 }
 
 button:hover {
@@ -29,4 +48,17 @@ button:hover {
     background-color: #4285F4;
     color: white;
     font-weight: bold;
+}
+
+.clear {
+    width: 188px;
+    padding: 20px;
+}
+
+#clear {
+    background-color: #ffcccb;
+}
+
+#delete {
+    background-color: lightblue;
 }
