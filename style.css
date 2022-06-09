@@ -1,3 +1,7 @@
+body {
+    background-color: lightslategray;
+}
+
 .main {
     display: flex;
     align-items: center;
@@ -9,22 +13,31 @@
     background-color: grey;
     border-radius: 7px;
     padding: 12px;
+    border: 2px solid black;
 }
 
 .display {
     height: 120px;
-    border: 1px solid black ;
+    border: 2px solid black ;
     border-radius: 7px;
     font-family: Arial;
-    font-size: 40px;
     text-align: right;
     background-color: rgb(125, 140, 115);
     color: black;
 }
 
+.equation {
+    margin-top: 5px;
+    margin-right: 5px;
+    min-height: 50px;
+    font-size: 20px;
+}
+
 .screen {
-    margin-top: 60px;
-    margin-right: 20px;
+    margin-top: 15px;
+    margin-right: 10px;
+    min-height: 90px;
+    font-size: 40px;
 }
 
 .row {
