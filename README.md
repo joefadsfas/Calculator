@@ -1,2 +1,4 @@
 # Calculator
-e
+
+A working Calculator!
+For the Odin Project
