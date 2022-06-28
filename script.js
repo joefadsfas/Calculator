@@ -15,21 +15,23 @@ function divide(x, y){
 }
 
 function operate(x, operator, y){
+    let out = 0
     if(operator === '+'){
-        console.log(add(x, y))
+        out += add(x, y)
     }
 
     if(operator === '-'){
-        console.log(subtract(x, y))
+        out += subtract(x, y)
     }
 
-    if(operator === '*'){
-        console.log(multiply(x, y))
+    if(operator === '⋅'){
+        out += multiply(x, y)
     }
 
-    if(operator === ':'){
-        console.log(divide(x, y))
+    if(operator === '÷'){
+        out += divide(x, y)
     }
+    return out
 }
 
 let displayValue = []
@@ -117,8 +119,16 @@ function createOperator(){
     const equals = document.querySelector('#equals')
     
     equals.addEventListener('click', () => {
+        if(equation.innerHTML != ''){
+            equation.innerHTML = ''
+        }
         screen.innerHTML += '='
         equation.innerHTML += screen.innerHTML
+        screen.innerHTML = ''
+        displayValue.push(newNumber)
+        screen.innerHTML = String(Calculate(displayValue))
+        displayValue = []
+        newNumber = screen.innerHTML
     })
 
     clear.addEventListener('click', () => {
@@ -133,34 +143,83 @@ function createOperator(){
     })
 
     add.addEventListener('click', ()=> {
+        //make answer display value
         screen.innerHTML += '+';
         displayValue.push(newNumber)
+        displayValue.push('+')
         newNumber = ''
+        if (displayValue.length === 4){
+            if(equation.innerHTML != ''){
+                equation.innerHTML = ''
+            }
+            equation.innerHTML += screen.innerHTML.slice(0, -1) + '='
+            screen.innerHTML = String(Calculate(displayValue)) + '+'
+            displayValue = screen.innerHTML.split(/([0-9]+)/)
+            displayValue.splice(0, 1)
+        }
+
         })
     
     sub.addEventListener('click', ()=> {
         screen.innerHTML += '-';
         displayValue.push(newNumber)
+        displayValue.push('-')
         newNumber = ''
+        if (displayValue.length === 4){
+            if(equation.innerHTML != ''){
+                equation.innerHTML = ''
+            }
+            equation.innerHTML += screen.innerHTML.slice(0, -1) + '='
+            screen.innerHTML = String(Calculate(displayValue)) + '-'
+            displayValue = screen.innerHTML.split(/([0-9]+)/)
+            displayValue.splice(0, 1)
+        }
         })
     
     divide.addEventListener('click', ()=> {
         screen.innerHTML += '÷';
         displayValue.push(newNumber)
+        displayValue.push('÷')
         newNumber = ''
+        if (displayValue.length === 4){
+            if(equation.innerHTML != ''){
+                equation.innerHTML = ''
+            }
+            equation.innerHTML += screen.innerHTML.slice(0, -1) + '='
+            screen.innerHTML = String(Calculate(displayValue)) + '÷'
+            displayValue = screen.innerHTML.split(/([0-9]+)/)
+            displayValue.splice(0, 1)
+        }
         })
     
     multiply.addEventListener('click', ()=> {
         screen.innerHTML += '⋅';
         displayValue.push(newNumber)
+        displayValue.push('⋅')
         newNumber = ''
+        if (displayValue.length === 4){
+            if(equation.innerHTML != ''){
+                equation.innerHTML = ''
+            }
+            equation.innerHTML += screen.innerHTML.slice(0, -1) + '='
+            screen.innerHTML = String(Calculate(displayValue)) + '⋅'
+            displayValue = screen.innerHTML.split(/([0-9]+)/)
+            displayValue.splice(0, 1)
+        }
         })
     
+}
+
+function Calculate(input){
+    let out = 0
+    out = operate(Number(input[0]), input[1], Number(input[2]))
+    return out
 }
 
 createNumber()
 
 createOperator()
+
 
 
 //create new function
