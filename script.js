@@ -29,6 +29,9 @@ function operate(x, operator, y){
     }
 
     if(operator === '÷'){
+        if (y == 0){
+            return 'ERROR - CLEAR'
+        }
         out += divide(x, y)
     }
     return out
@@ -103,7 +106,13 @@ function createNumber() {
     })
 
     dot.addEventListener('click', () => {
-        screen.innerHTML += '.'
+        if(newNumber.includes('.')){
+            void(0)
+        }
+        else{
+            newNumber += '.'
+            screen.innerHTML += '.'
+        }
     })
 }
 
@@ -133,6 +142,7 @@ function createOperator(){
 
     clear.addEventListener('click', () => {
         screen.innerHTML = '';
+        equation.innerHTML = '';
         newNumber = ''
         displayValue = []
     })
