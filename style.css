@@ -2,6 +2,21 @@ body {
     background-color: lightslategray;
 }
 
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+    font-family: Arial;
+    font-weight: bold;
+}
+    
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 64px;
+}
+
 .main {
     display: flex;
     align-items: center;
